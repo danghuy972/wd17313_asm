@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('enrollments', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
+            $table->integer('class_id');
+            $table->date('enrollment_date')->nullable();
             $table->timestamps();
         });
     }

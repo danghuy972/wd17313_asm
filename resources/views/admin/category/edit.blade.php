@@ -11,7 +11,7 @@
 @extends('admin.main-layout')
 @section('body')
     <h1>Cập nhật danh mục</h1>
-    <form action="{{ route('route_categories_edit',['id'=>$category->id]) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('route_categories_edit',['id'=>$category->id]) }}" method="POST">
         @csrf
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Tên danh mục</label>

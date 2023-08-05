@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Cours>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Instructors>
  */
-class CoursFactory extends Factory
+class InstructorsFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,11 +18,10 @@ class CoursFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'price' => fake()->randomNumber(),
-            'description' => 'Đây là mô tả',
+            'email' => fake()->unique()->safeEmail(),
+            'phone' => fake()->phoneNumber(),
             'image' => 'adasdasdsdsadasdasdas',
-            'category_id' => 1,
-            'instructor_id' => 2
+            'bio' => 'Tôi là giảng viên F-Poly'
         ];
     }
 }

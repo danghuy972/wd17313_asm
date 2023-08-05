@@ -19,8 +19,8 @@ return new class extends Migration
             $table->integer('price');
             $table->text('description');//mô tả
             $table->string('image');
-            $table->integer('id_category');
-            $table->integer('id_instructor');
+            $table->integer('category_id');
+            $table->integer('instructor_id');
             $table->timestamps();
         });
     }

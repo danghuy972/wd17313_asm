@@ -50,7 +50,7 @@ class CategoriesController extends Controller
         }
         return view('admin.category.edit',compact('title','category'));
     }
-
+    
     public function delete($id){
         Categories::where('id',$id)->delete();
         Session::flash('success','xóa thành công danh mục có id là'.$id);

@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->date('invoice_date'); //Ngày tạo hóa đơn
+            $table->integer('user_id');
+            $table->integer('enrollment_id');
+            $table->date('invoice_date')->nullable(); //Ngày tạo hóa đơn
             $table->integer('total_amount');//Tổng số tiền trong hóa đơn
             $table->timestamps();
         });

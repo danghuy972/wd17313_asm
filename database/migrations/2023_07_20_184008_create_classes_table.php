@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('start_date');//ngày bắt đầu lớp học
             $table->date('end_date');//ngày kết thúc
             $table->string('location');//Địa điểm diễn ra lớp học
-            $table->integer('id_course');
+            $table->integer('course_id');
             $table->integer('instructor_id');
             $table->timestamps();
         });
