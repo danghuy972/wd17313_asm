@@ -17,7 +17,12 @@ class ClassesFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' =>fake()->name(),
+            'start_date'=>fake()->date(),
+            'end_date' =>fake()->date(),
+            'location' =>fake()->address(),
+            'course_id' =>1,
+            'instructor_id' => 2
         ];
     }
 }
