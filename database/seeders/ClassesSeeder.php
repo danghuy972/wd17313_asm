@@ -15,6 +15,6 @@ class ClassesSeeder extends Seeder
      */
     public function run()
     {
-        Classes::factory()->count(10)->create();
+        Classes::factory()->count(5)->create();
     }
 }

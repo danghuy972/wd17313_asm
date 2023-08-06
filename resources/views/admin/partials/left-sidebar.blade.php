@@ -37,10 +37,10 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('route_user_index') }}">Quản lý người dùng</a>
-                        <a class="collapse-item" href="cards.html">Quản lý khóa học</a>
+                        <a class="collapse-item" href="{{ route('route_cours_index') }}">Quản lý khóa học</a>
                         <a class="collapse-item" href="{{ route('route_categories_index') }}">Quản lý danh mục</a>
-                        <a class="collapse-item" href="cards.html">Quản lý giáo viên</a>
-                        <a class="collapse-item" href="cards.html">Quản lý lớp</a>
+                        <a class="collapse-item" href="{{ route('route_instructors_index') }}">Quản lý giảng viên</a>
+                        <a class="collapse-item" href="{{ route('route_classes_index') }}">Quản lý lớp học</a>
                     </div>
                 </div>
             </li>

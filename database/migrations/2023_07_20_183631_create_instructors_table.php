@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('image');
             $table->text('bio');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

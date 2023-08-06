@@ -2,8 +2,12 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\ClassesController;
+use App\Http\Controllers\Admin\CoursController;
+use App\Http\Controllers\Admin\InstructorsController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Requests\ClassesRequest;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,3 +38,15 @@ Route::get('/admin/categories',[CategoriesController::class,'index'])->name('rou
 Route::match(['GET','POST'],'/admin/categories/add',[CategoriesController::class,'add'])->name('route_categories_add');
 Route::match(['GET','POST'],'/admin/categories/edit/{id}',[CategoriesController::class,'edit'])->name('route_categories_edit');
 Route::get('/admin/categories/delete/{id}',[CategoriesController::class,'delete'])->name('route_categories_delete');
+
+//cours
+Route::get('/admin/cours',[CoursController::class,'index'])->name('route_cours_index');
+Route::match(['GET','POST'],'/admin/cours/add',[CoursController::class,'add'])->name('route_cours_add');
+Route::match(['GET','POST'],'/admin/cours/edit/{id}',[CoursController::class,'edit'])->name('route_cours_edit');
+Route::get('/admin/cours/delete/{id}',[CoursController::class,'delete'])->name('route_cours_delete');
+
+//instructor
+Route::get('/admin/instructors',[InstructorsController::class,'index'])->name('route_instructors_index');
+
+//class
+Route::get('/admin/classes',[ClassesController::class,'index'])->name('route_classes_index');
