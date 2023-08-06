@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('course_id');
             $table->integer('instructor_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -30,7 +30,7 @@ class UserController extends Controller
 
             if($student->id){
                 Session::flash('success','Thêm mới thành công sinh viên');
-                return redirect()->route('route_user_add');
+                return redirect()->route('route_user_index');
             }
         }
         return view('admin.user.add', compact('title'));
@@ -56,7 +56,7 @@ class UserController extends Controller
                 $params['image'] = $users->image;
             }
            $result = User::where('id',$id)
-               ->update($request->except('_token'));
+               ->update($params);
            if ($result) {
                Session::flash('success','sửa  thành công sinh viên');
                return redirect()->route('route_user_edit',['id'=>$id]);
