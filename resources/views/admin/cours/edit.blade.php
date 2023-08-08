@@ -40,23 +40,33 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label>Category *</label>
-                <select id="category_id" name="category_id" value="" class="selectpicker form-control" data-style="py-0">
+                <label>Categories *</label>
+                <select id="category_id" name="category_id" value="{{ $cours->category_id }}" class="selectpicker form-control" data-style="py-0">
                     <option value="">--- Chọn ---</option>
-                        <option value="1">Danh mục 1</option>
-                        <option value="2">Danh mục 2</option>
-                        <option value="3">Danh mục 3</option>
+                    @foreach ($categories as $ca)
+                        @if ($cours->category_id == $ca->id)
+                            <option value="{{ $ca->id }}" selected>{{ $ca->name }}</option>
+                        @endif
+                        @if ($cours->category_id != $ca->id)
+                            <option value="{{ $ca->id }}">{{ $ca->name }}</option>
+                        @endif
+                    @endforeach
                 </select>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label>Category *</label>
-                <select id="instructor_id" name="instructor_id" value="" class="selectpicker form-control" data-style="py-0">
+                <label>Instructors *</label>
+                <select id="instructor_id" name="instructor_id" value="{{ $cours->instructor_id }}" class="selectpicker form-control" data-style="py-0">
                     <option value="">--- Chọn ---</option>
-                        <option value="1">Giảng viên 1</option>
-                        <option value="2">Giảng viên 2</option>
-                        <option value="3">Giảng viên 3</option>
+                    @foreach ($instructors as $in)
+                        @if ($cours->instructor_id == $in->id)
+                            <option value="{{ $in->id }}" selected>{{ $in->name }}</option>
+                        @endif
+                        @if ($cours->instructor_id != $in->id)
+                            <option value="{{ $in->id }}">{{ $in->name }}</option>
+                        @endif
+                    @endforeach
                 </select>
             </div>
         </div>

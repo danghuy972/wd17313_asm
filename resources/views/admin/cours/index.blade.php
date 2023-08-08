@@ -33,8 +33,8 @@
                 <td>{{ $c->description }}</td>
                 <td><img src="{{ $c->image?''.Storage::url($c->image):''}}" style="width: 120px" /></td>
                 <td>{{ $c->price }}</td>
-                <td>{{ $c->category_id }}</td>
-                <td>{{ $c->instructor_id }}</td>
+                <td>{{ $c->categories->name}}</td>
+                <td>{{ $c->instructors->name }}</td>
                 <td>
                     <a href="{{ route('route_cours_edit',['id'=>$c->id]) }}" class="btn btn-success">Cập nhật</a>
                     <a href="{{ route('route_cours_delete',['id'=>$c->id]) }}" class="btn btn-danger">Xóa</a>    

@@ -13,7 +13,7 @@ class ClassesRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,29 @@ class ClassesRequest extends FormRequest
      */
     public function rules()
     {
+        $rules = [];
+        // lấy ra tên phương thức cần xử lý
+        $currentAction = $this->route()->getActionMethod();
+        
+        switch($this->method()):
+            case 'POST' : 
+                switch ($currentAction):
+                    case 'add' :
+                        // xây dựng rules validate trong này
+                        $rules = [
+                            'name'=>'required',
+                            'location'=>'required',
+                        ];
+                        break;
+                endswitch;
+                break;        
+        endswitch;
+        return $rules;
+    }
+    public function messages(){
         return [
-            //
+            'name.required'=> 'Tên không được để trống',
+            'location.required'=> 'Địa điểm không được để trống',
         ];
     }
 }

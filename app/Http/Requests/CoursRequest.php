@@ -47,7 +47,7 @@ class CoursRequest extends FormRequest
     public function messages(){
         return [
             'name.required'=> 'Tên không được để trống',
-            'name.unique'=> 'Email đã tồn tại',
+            'name.unique'=> 'Tên đã tồn tại',
             'price.required'=> 'Bắt buộc phải nhập giá',
             'description.required'=> 'Bắt buộc phải nhập mô tả',
             'image.required' => 'Bắt buộc phải nhập ảnh'

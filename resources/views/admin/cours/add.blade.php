@@ -10,7 +10,7 @@
 <body>
 @extends('admin.main-layout')
 @section('body')
-    <h1>Cập nhật khóa học</h1>
+    <h1>Thêm mới khóa học</h1>
     <form action="{{ route('route_cours_add') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
@@ -40,23 +40,23 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label>Category *</label>
+                <label>Danh mục *</label>
                 <select id="category_id" name="category_id" value="" class="selectpicker form-control" data-style="py-0">
                     <option value="">--- Chọn ---</option>
-                        <option value="1">Danh mục 1</option>
-                        <option value="2">Danh mục 2</option>
-                        <option value="3">Danh mục 3</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label>Category *</label>
+                <label>Giảng viên *</label>
                 <select id="instructor_id" name="instructor_id" value="" class="selectpicker form-control" data-style="py-0">
                     <option value="">--- Chọn ---</option>
-                        <option value="1">Giảng viên 1</option>
-                        <option value="2">Giảng viên 2</option>
-                        <option value="3">Giảng viên 3</option>
+                    @foreach ($instructors as $i)
+                    <option value="{{ $i->id }}">{{ $i->name }}</option>
+                    @endforeach
                 </select>
             </div>
         </div>

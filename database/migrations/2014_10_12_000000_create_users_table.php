@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->integer('phone')->nullable();
             $table->string('dress')->nullable();
-            $table->boolean('role')->default(false);
+            $table->integer('role')->default(1);
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
