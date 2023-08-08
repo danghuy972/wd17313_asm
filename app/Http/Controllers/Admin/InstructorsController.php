@@ -52,7 +52,7 @@ class InstructorsController extends Controller
                ->update($params);
            if ($result) {
                Session::flash('success','sửa thành công giảng viên');
-               return redirect()->route('route_instructors_edit',['id'=>$id]);
+               return redirect()->route('route_instructors_index',['id'=>$id]);
            }
         }
         return view('admin.instructor.edit',compact('instructors','title','id'));

@@ -102,7 +102,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('home') }}">
+                <a class="nav-link" href="{{ route('homepage') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Trang chủ</span></a>
             </li>
