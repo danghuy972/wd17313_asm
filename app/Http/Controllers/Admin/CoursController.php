@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CoursRequest;
+use App\Models\Categories;
 use App\Models\Cours;
+use App\Models\Instructors;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -18,6 +20,9 @@ class CoursController extends Controller
         //tạo 1 route add-student và view add gồm form (input name,email)
     }
     public function add(CoursRequest $request){
+        $categories = Categories::all();
+        $instructors = Instructors::all();
+
         $title = "Thêm mới khóa học";
         if ($request->isMethod('POST')) { //tồn tại phương thức post
             // nếu như tồn tại file thì sẽ upfile lên
@@ -29,15 +34,17 @@ class CoursController extends Controller
 
             if($student->id){
                 Session::flash('success','Thêm mới thành công khóa học');
-                return redirect()->route('route_cours_add');
+                return redirect()->route('route_cours_index');
             }
         }
-        return view('admin.cours.add', compact('title'));
+        return view('admin.cours.add', compact('title','categories','instructors'));
     }
 
-    public function  edit(CoursRequest $request,$id) {
+    public function edit(CoursRequest $request,$id) {
         $title = "Cập nhật khóa học";
         $cours = Cours::find($id);
+        $categories = Categories::all();
+        $instructors = Instructors::all();
         if ($request->isMethod('POST')) {
             $params = $request->except('_token');
             if ($request->hasFile('image') && $request->file('image')->isValid()) {
@@ -52,10 +59,10 @@ class CoursController extends Controller
                ->update($params);
            if ($result) {
                Session::flash('success','sửa  thành công khóa học');
-               return redirect()->route('route_cours_edit',['id'=>$id]);
+               return redirect()->route('route_cours_index',['id'=>$id]);
            }
         }
-        return view('admin.cours.edit',compact('cours','title','id'));
+        return view('admin.cours.edit',compact('cours','title','id','instructors','categories'));
     }
 
     public function delete($id){

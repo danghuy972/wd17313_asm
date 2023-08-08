@@ -26,7 +26,7 @@ class CategoriesController extends Controller
 
             if($categories->id){
                 Session::flash('success','Thêm mới thành công sinh viên');
-                return redirect()->route('route_categories_add');
+                return redirect()->route('route_categories_index');
             }
         }
         return view('admin.category.add', compact('title'));
@@ -34,10 +34,7 @@ class CategoriesController extends Controller
 
     public function  edit(CategoryRequest $request,$id) {
         $title = "Cập nhật danh mục";
-        //cách 1
-//        $student = DB::table('students')
-//            ->where('id',$id)->first();
-        //cách 2
+
         $category = Categories::find($id);
         if ($request->isMethod('POST')) {
            $params = $request->except('_token');
@@ -45,7 +42,7 @@ class CategoriesController extends Controller
                ->update($request->except('_token'));
            if ($result) {
                Session::flash('success','sửa  thành công danh mục');
-               return redirect()->route('route_categories_edit',['id'=>$id]);
+               return redirect()->route('route_categories_index',['id'=>$id]);
            }
         }
         return view('admin.category.edit',compact('title','category'));

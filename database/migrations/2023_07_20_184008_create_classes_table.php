@@ -16,11 +16,9 @@ return new class extends Migration
         Schema::create('classes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->date('start_date');//ngày bắt đầu lớp học
-            $table->date('end_date');//ngày kết thúc
             $table->string('location');//Địa điểm diễn ra lớp học
-            $table->integer('course_id');
-            $table->integer('instructor_id');
+            $table->integer('course_id')->nullable();
+            $table->integer('instructor_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

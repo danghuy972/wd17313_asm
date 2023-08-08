@@ -18,4 +18,13 @@ class Cours extends Model
         'category_id',
         'instructor_id'
     ];
+    public function categories()
+    {
+        return $this->hasOne(Categories::class, 'id', 'category_id');
+    }
+
+    public function instructors()
+    {
+        return $this->hasOne(Instructors::class, 'id', 'instructor_id');
+    }
 }
