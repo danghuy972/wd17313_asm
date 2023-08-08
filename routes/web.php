@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\FrontEnd\HomeController;
 use App\Http\Requests\ClassesRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,14 +29,14 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::match(['GET','POST'],'/login',[LoginController::class,'login'])->name('login');
+// Route::match(['GET','POST'],'/login',[LoginController::class,'login'])->name('login');
 
 
-Route::get('/',[HomeController::class,'home'])->name('home');
+Route::get('/',[HomeController::class,'home'])->name('homepage');
 Route::get('/courses',[HomeController::class,'courses'])->name('courses');
 Route::match(['GET','POST'],'/courses/chitiet/{id}',[HomeController::class,'chitiet'])->name('chitiet');
 
-// Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth','isAdmin'])->group(function(){
     // tất cả những route nào được check đăng nhập mới vào được  
     Route::get('/admin',[ProfileController::class,'dashboard'])->name('dashboard');
     //user
@@ -67,4 +68,7 @@ Route::match(['GET','POST'],'/courses/chitiet/{id}',[HomeController::class,'chit
     Route::match(['GET','POST'],'/admin/classes/add',[ClassesController::class,'add'])->name('route_classes_add');
     Route::match(['GET','POST'],'/admin/classes/edit/{id}',[ClassesController::class,'edit'])->name('route_classes_edit');
     Route::get('/admin/classes/delete/{id}',[ClassesController::class,'delete'])->name('route_classes_delete');
-// });
+});
+Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

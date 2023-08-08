@@ -46,7 +46,7 @@ class ClassesController extends Controller
            $result = Classes::where('id',$id)
                ->update($params);
            if ($result) {
-               Session::flash('success','sửa thành công khóa học');
+               Session::flash('success','sửa thành công lớp học');
                return redirect()->route('route_classes_index',['id'=>$id]);
            }
         }

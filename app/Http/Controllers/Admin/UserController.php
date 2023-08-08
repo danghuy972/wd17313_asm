@@ -59,7 +59,7 @@ class UserController extends Controller
                ->update($params);
            if ($result) {
                Session::flash('success','sửa  thành công sinh viên');
-               return redirect()->route('route_user_edit',['id'=>$id]);
+               return redirect()->route('route_user_index',['id'=>$id]);
            }
         }
         return view('admin.user.edit',compact('users','title','id'));
